@@ -35,6 +35,10 @@ class Facilities extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function offer()
+    {
+        return $this->belongsToMany('App\Models\Offers', 'offer_faci', 'facilitie_id', 'offer_id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

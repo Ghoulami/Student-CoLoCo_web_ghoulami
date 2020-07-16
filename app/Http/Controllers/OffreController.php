@@ -17,7 +17,11 @@ class OffreController extends Controller
      */
     public function index()
     {
-        
+        $offers = Offers::orderBy('created_at', 'desc')
+        ->get();
+        return view('index' , [
+            'offers' => $offers
+        ]);
     }
 
     /**
@@ -99,7 +103,10 @@ class OffreController extends Controller
      */
     public function show($id)
     {
-        //
+        $offer = Offers::with('image')->find($id);
+        return view('properties' , [
+            'offer' =>$offer
+        ]);
     }
 
     /**
@@ -133,14 +140,15 @@ class OffreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Offers::where('id',$id)->delete();
+        return redirect()->route('offer.index');
     }
 
     //'images/Offers'
     public function uploadImages($request , $path){
         if ($request->hasFile('imgPath')) {
             $image      = $request->file('imgPath');
-            $fileName   = $image->getClientOriginalName(). '.' . $image->getClientOriginalExtension();
+            $fileName   = $image->getClientOriginalName();
             return $request->imgPath->storeAs($path, $fileName, 'public');
         }
         return null;

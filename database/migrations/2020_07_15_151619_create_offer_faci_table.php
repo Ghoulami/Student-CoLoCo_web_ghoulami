@@ -21,7 +21,11 @@ class CreateOfferFaciTable extends Migration
             $table->unsignedBigInteger('facilitie_id')->nullable();
             $table->foreign('facilitie_id')->references('id')->on('facilities')->onDelete('cascade');
 
+            $table->unsignedBigInteger('demand_id')->nullable();
+            $table->foreign('demand_id')->references('id')->on('demands')->onDelete('cascade');
+
             $table->unique(['offer_id','facilitie_id',]);
+            $table->unique(['demand_id','facilitie_id',]);
             $table->timestamps();
         });
     }

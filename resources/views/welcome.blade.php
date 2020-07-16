@@ -12,12 +12,10 @@
                     <div class="sl-slide-inner ">
 
                         <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
-                        <blockquote><cite><a href="property.html">Ralph Waldo villa</a></cite>
-                            <p>You have just dined, and however scrupulously the slaughterhouse 
-                                is concealed in the graceful distance of miles, there is complicity.
-                            </p>
-                            <span class="pull-left"><b> Area :</b> 120m </span>
-                            <span class="proerty-price pull-right"> $ 300,000</span>
+                        <blockquote><cite><a href="{{route('offer.show',['offer'=>$offers[0]->id])}}">{{$offers[0]->property_name}}</a></cite>
+                            <p>{{substr ($offers[0]->description, 0, 100 )}}...</p>
+                            <span class="pull-left"><b> Area :</b>{{$offers[0]->area}} m²</span>
+                            <span class="proerty-price pull-right">{{$offers[0]->property_price}} MAD</span>
                             <div class="property-icon">
                                 <img src="assets/img/icon/bed.png">(5)|
                                 <img src="assets/img/icon/shawer.png">(2)|
@@ -32,12 +30,10 @@
                     <div class="sl-slide-inner ">
 
                         <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
-                        <blockquote><cite><a href="property.html">Kyoto hows villa</a></cite>
-                            <p>You have just dined, and however scrupulously the slaughterhouse 
-                                is concealed in the graceful distance of miles, there is complicity.
-                            </p>
-                            <span class="pull-left"><b> Area :</b> 120m </span>
-                            <span class="proerty-price pull-right"> $ 250,000</span>
+                        <blockquote><cite><a href="{{route('offer.show' ,['offer'=>$offers[1]->id])}}">{{$offers[1]->property_name}}</a></cite>
+                            <p>{{substr ($offers[1]->description, 0, 100 )}}...</p>
+                            <span class="pull-left"><b> Area :</b>{{$offers[1]->area}} m²</span>
+                            <span class="proerty-price pull-right">{{$offers[1]->property_price}} MAD</span>
                             <div class="property-icon">
                                 <img src="assets/img/icon/bed.png">(5)|
                                 <img src="assets/img/icon/shawer.png">(2)|
@@ -52,12 +48,10 @@
                     <div class="sl-slide-inner ">
 
                         <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
-                        <blockquote><cite><a href="property.html">New Waldo villa</a></cite>
-                            <p>You have just dined, and however scrupulously the slaughterhouse 
-                                is concealed in the graceful distance of miles, there is complicity.
-                            </p>
-                            <span class="pull-left"><b> Area :</b> 120m </span>
-                            <span class="proerty-price pull-right"> $ 360,000</span>
+                        <blockquote><cite><a href="{{route('offer.show' ,['offer'=>$offers[2]->id])}}">{{$offers[2]->property_name}}</a></cite>
+                            <p>{{substr ($offers[2]->description, 0, 100 )}}...</p>
+                            <span class="pull-left"><b> Area :</b>{{$offers[2]->area}} m²</span>
+                            <span class="proerty-price pull-right">{{$offers[2]->property_price}} MAD</span>
                             <div class="property-icon">
                                 <img src="assets/img/icon/bed.png">(5)|
                                 <img src="assets/img/icon/shawer.png">(2)|
@@ -73,12 +67,10 @@
                     <div class="sl-slide-inner ">
 
                         <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
-                        <blockquote><cite><a href="property.html">New Waldo villa</a></cite>
-                            <p>You have just dined, and however scrupulously the slaughterhouse 
-                                is concealed in the graceful distance of miles, there is complicity.
-                            </p>
-                            <span class="pull-left"><b> Area :</b> 120m </span>
-                            <span class="proerty-price pull-right"> $ 360,000</span>
+                        <blockquote><cite><a href="{{route('offer.show' ,['offer'=>$offers[3]->id])}}">{{$offers[3]->property_name}}</a></cite>
+                            <p>{{substr ($offers[3]->description, 0, 100 )}}...</p>
+                            <span class="pull-left"><b> Area :</b>{{$offers[3]->area}} m²</span>
+                            <span class="proerty-price pull-right">{{$offers[3]->property_price}} MAD</span>
                             <div class="property-icon">
                                 <img src="assets/img/icon/bed.png">(5)|
                                 <img src="assets/img/icon/shawer.png">(2)|
@@ -116,10 +108,10 @@
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-two proerty-item">
                                 <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="storage/{{$offer->imgPath}}" style="width:250px; height:300px;"></a>
+                                    <a href="{{route('offer.show' ,['offer'=>$offer->id])}}" ><img src="storage/{{$offer->imgPath}}" style="width:304px; height:248px;"></a>
                                 </div>
                                 <div class="item-entry overflow">
-                                    <h5><a href="property-1.html" >{{$offer->property_name}} </a></h5>
+                                    <h5><a href="{{route('offer.show' ,['offer'=>$offer->id])}}" >{{$offer->property_name}} </a></h5>
                                     <div class="dot-hr"></div>
                                     <span class="pull-left"><b>Area :</b> {{$offer->area}} </span>
                                     <span class="proerty-price pull-right">{{$offer->property_price}} MAD</span>
@@ -127,104 +119,15 @@
                             </div>
                         </div>
                     @endforeach
-                    
-
-                    <div class="col-sm-6 col-md-3 p0">
-                        <div class="box-two proerty-item">
-                            <div class="item-thumb">
-                                <a href="property-2.html" ><img src="assets/img/demo/property-2.jpg"></a>
-                            </div>
-                            <div class="item-entry overflow">
-                                <h5><a href="property-2.html" >Super nice villa </a></h5>
-                                <div class="dot-hr"></div>
-                                <span class="pull-left"><b>Area :</b> 120m </span>
-                                <span class="proerty-price pull-right">$ 300,000</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3 p0">
-                        <div class="box-two proerty-item">
-                            <div class="item-thumb">
-                                <a href="property-3.html" ><img src="assets/img/demo/property-5.jpg"></a>
-
-                            </div>
-                            <div class="item-entry overflow">
-                                <h5><a href="property-3.html" >Super nice villa </a></h5>
-                                <div class="dot-hr"></div>
-                                <span class="pull-left"><b>Area :</b> 120m </span>
-                                <span class="proerty-price pull-right">$ 300,000</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3 p0">
-                        <div class="box-two proerty-item">
-                            <div class="item-thumb">
-                                <a href="property-1.html" ><img src="assets/img/demo/property-4.jpg"></a>
-
-                            </div>
-                            <div class="item-entry overflow">
-                                <h5><a href="property-1.html" >Super nice villa </a></h5>
-                                <div class="dot-hr"></div>
-                                <span class="pull-left"><b>Area :</b> 120m </span>
-                                <span class="proerty-price pull-right">$ 300,000</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-sm-6 col-md-3 p0">
-                        <div class="box-two proerty-item">
-                            <div class="item-thumb">
-                                <a href="property-3.html" ><img src="assets/img/demo/property-5.jpg"></a>
-                            </div>
-                            <div class="item-entry overflow">
-                                <h5><a href="property-3.html" >Super nice villa </a></h5>
-                                <div class="dot-hr"></div>
-                                <span class="pull-left"><b>Area :</b> 120m </span>
-                                <span class="proerty-price pull-right">$ 300,000</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3 p0">
-                        <div class="box-two proerty-item">
-                            <div class="item-thumb">
-                                <a href="property-2.html" ><img src="assets/img/demo/property-3.jpg"></a>
-                            </div>
-                            <div class="item-entry overflow">
-                                <h5><a href="property-2.html" >Super nice villa </a></h5>
-                                <div class="dot-hr"></div>
-                                <span class="pull-left"><b>Area :</b> 120m </span>
-                                <span class="proerty-price pull-right">$ 300,000</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3 p0">
-                        <div class="box-two proerty-item">
-                            <div class="item-thumb">
-                                <a href="property-1.html" ><img src="assets/img/demo/property-6.jpg"></a>
-                            </div>
-                            <div class="item-entry overflow">
-                                <h5><a href="property-1.html" >Super nice villa </a></h5>
-                                <div class="dot-hr"></div>
-                                <span class="pull-left"><b>Area :</b> 120m </span>
-                                <span class="proerty-price pull-right">$ 300,000</span>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="col-sm-6 col-md-3 p0">
                         <div class="box-tree more-proerty text-center">
                             <div class="item-tree-icon">
                                 <i class="fa fa-th"></i>
                             </div>
                             <div class="more-entry overflow">
-                                <h5><a href="property-1.html" >CAN'T DECIDE ? </a></h5>
+                                <h5><a href="{{route('offer.index')}}" >CAN'T DECIDE ? </a></h5>
                                 <h5 class="tree-sub-ttl">Show all properties</h5>
-                                <button class="btn border-btn more-black" value="All properties">All properties</button>
+                                <a class="btn border-btn more-black" href="{{route('offer.index')}}" >All properties</a>
                             </div>
                         </div>
                     </div>
@@ -298,128 +201,7 @@
             </div>
         </div>
     </div>
-
-    <!--TESTIMONIALS -->
-    <div class="testimonial-area recent-property" style="background-color: #FCFCFC; padding-bottom: 15px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                    <!-- /.feature title -->
-                    <h2>Our Customers Said  </h2> 
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="row testimonial">
-                    <div class="col-md-12">
-                        <div id="testimonial-slider">
-                            <div class="item">
-                                <div class="client-text">                                
-                                    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                                </div>
-                                <div class="client-face wow fadeInRight" data-wow-delay=".9s"> 
-                                    <img src="assets/img/client-face1.png" alt="">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="client-text">                                
-                                    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                                </div>
-                                <div class="client-face">
-                                    <img src="assets/img/client-face2.png" alt="">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="client-text">                                
-                                    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                                </div>
-                                <div class="client-face">
-                                    <img src="assets/img/client-face1.png" alt="">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="client-text">                                
-                                    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                                </div>
-                                <div class="client-face">
-                                    <img src="assets/img/client-face2.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Count area -->
-    <div class="count-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                    <!-- /.feature title -->
-                    <h2>You can trust Us </h2> 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-xs-12 percent-blocks m-main" data-waypoint-scroll="true">
-                    <div class="row">
-                        <div class="col-sm-3 col-xs-6">
-                            <div class="count-item">
-                                <div class="count-item-circle">
-                                    <span class="pe-7s-users"></span>
-                                </div>
-                                <div class="chart" data-percent="5000">
-                                    <h2 class="percent" id="counter">0</h2>
-                                    <h5>HAPPY CUSTOMER </h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <div class="count-item">
-                                <div class="count-item-circle">
-                                    <span class="pe-7s-home"></span>
-                                </div>
-                                <div class="chart" data-percent="12000">
-                                    <h2 class="percent" id="counter1">0</h2>
-                                    <h5>Properties in stock</h5>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-sm-3 col-xs-6">
-                            <div class="count-item">
-                                <div class="count-item-circle">
-                                    <span class="pe-7s-flag"></span>
-                                </div>
-                                <div class="chart" data-percent="120">
-                                    <h2 class="percent" id="counter2">0</h2>
-                                    <h5>City registered </h5>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-sm-3 col-xs-6">
-                            <div class="count-item">
-                                <div class="count-item-circle">
-                                    <span class="pe-7s-graph2"></span>
-                                </div>
-                                <div class="chart" data-percent="5000">
-                                    <h2 class="percent"  id="counter3">5000</h2>
-                                    <h5>DEALER BRANCHES</h5>
-                                </div>
-                            </div> 
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
     <!-- boy-sale area -->
     <div class="boy-sale-area">
         <div class="container">
@@ -431,11 +213,11 @@
                             <span class="fa fa-search"></span>
                         </div>
                         <div class="asks-first-info">
-                            <h2>ARE YOU LOOKING FOR A Property?</h2>
+                            <h2>DO YOU WANT TO PUT A DEMAND?</h2>
                             <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa</p>                                        
                         </div>
                         <div class="asks-first-arrow">
-                            <a href="properties.html"><span class="fa fa-angle-right"></span></a>
+                            <a href="{{route('demand.create')}}"><span class="fa fa-angle-right"></span></a>
                         </div>
                     </div>
                 </div>
@@ -445,11 +227,11 @@
                             <span class="fa fa-usd"></span>
                         </div>
                         <div class="asks-first-info">
-                            <h2>DO YOU WANT TO SELL A Property?</h2>
+                            <h2>TO SEE DEMANDS EXIST</h2>
                             <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa</p>
                         </div>
                         <div class="asks-first-arrow">
-                            <a href="properties.html"><span class="fa fa-angle-right"></span></a>
+                            <a href="{{route('demand.index')}}"><span class="fa fa-angle-right"></span></a>
                         </div>
                     </div>
                 </div>

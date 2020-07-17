@@ -92,7 +92,7 @@ class OffreController extends Controller
         Images::insert($list);
         $offre->facilities()->toggle($request->input('facilities'));
 
-        return  redirect('/');
+        return redirect()->route('offer.index');
     }
 
     /**

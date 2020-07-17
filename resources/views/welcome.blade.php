@@ -14,77 +14,81 @@
     <div class="slide-2">
         <div id="slider" class="sl-slider-wrapper">
             <div class="sl-slider">
-                <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-                    <div class="sl-slide-inner ">
+                <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">    
+                @if (!empty($offers[0]))
+                    <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+                        <div class="sl-slide-inner ">
+                            <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
+                            <blockquote><cite><a href="{{route('offer.show' ,['offer'=>$offers[0]->id])}}">{{$offers[0]->property_name}}</a></cite>
+                                <p>{{substr ($offers[0]->description, 0, 100 )}}...</p>
+                                <span class="pull-left"><b> Area :</b>{{$offers[0]->area}} m²</span>
+                                <span class="proerty-price pull-right">{{$offers[0]->property_price}} MAD</span>
+                                <div class="property-icon">
+                                    <img src="assets/img/icon/bed.png">(5)|
+                                    <img src="assets/img/icon/shawer.png">(2)|
+                                    <img src="assets/img/icon/cars.png">(1)  
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>  
+                @endif
 
-                        <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
-                        <blockquote><cite><a href="{{route('offer.show',['offer'=>$offers[0]->id])}}">{{$offers[0]->property_name}}</a></cite>
-                            <p>{{substr ($offers[0]->description, 0, 100 )}}...</p>
-                            <span class="pull-left"><b> Area :</b>{{$offers[0]->area}} m²</span>
-                            <span class="proerty-price pull-right">{{$offers[0]->property_price}} MAD</span>
-                            <div class="property-icon">
-                                <img src="assets/img/icon/bed.png">(5)|
-                                <img src="assets/img/icon/shawer.png">(2)|
-                                <img src="assets/img/icon/cars.png">(1)  
-                            </div>
-                        </blockquote>
+                @if (!empty($offers[1]))
+                    <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+                        <div class="sl-slide-inner ">
+                            <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
+                            <blockquote><cite><a href="{{route('offer.show' ,['offer'=>$offers[1]->id])}}">{{$offers[1]->property_name}}</a></cite>
+                                <p>{{substr ($offers[1]->description, 0, 100 )}}...</p>
+                                <span class="pull-left"><b> Area :</b>{{$offers[1]->area}} m²</span>
+                                <span class="proerty-price pull-right">{{$offers[0]->property_price}} MAD</span>
+                                <div class="property-icon">
+                                    <img src="assets/img/icon/bed.png">(5)|
+                                    <img src="assets/img/icon/shawer.png">(2)|
+                                    <img src="assets/img/icon/cars.png">(1)  
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>  
+                @endif
+
+                @if (!empty($offers[2]))
+                    <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+
+                        <div class="sl-slide-inner ">
+
+                            <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
+                            <blockquote><cite><a href="{{route('offer.show' ,['offer'=>$offers[2]->id])}}">{{$offers[2]->property_name}}</a></cite>
+                                <p>{{substr ($offers[2]->description, 0, 100 )}}...</p>
+                                <span class="pull-left"><b> Area :</b>{{$offers[2]->area}} m²</span>
+                                <span class="proerty-price pull-right">{{$offers[2]->property_price}} MAD</span>
+                                <div class="property-icon">
+                                    <img src="assets/img/icon/bed.png">(5)|
+                                    <img src="assets/img/icon/shawer.png">(2)|
+                                    <img src="assets/img/icon/cars.png">(1)  
+                                </div>
+                            </blockquote>
+                        </div>
                     </div>
-                </div> 
-
-                <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-
-                    <div class="sl-slide-inner ">
-
-                        <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
-                        <blockquote><cite><a href="{{route('offer.show' ,['offer'=>$offers[1]->id])}}">{{$offers[1]->property_name}}</a></cite>
-                            <p>{{substr ($offers[1]->description, 0, 100 )}}...</p>
-                            <span class="pull-left"><b> Area :</b>{{$offers[1]->area}} m²</span>
-                            <span class="proerty-price pull-right">{{$offers[1]->property_price}} MAD</span>
-                            <div class="property-icon">
-                                <img src="assets/img/icon/bed.png">(5)|
-                                <img src="assets/img/icon/shawer.png">(2)|
-                                <img src="assets/img/icon/cars.png">(1)  
-                            </div>
-                        </blockquote>
+                @endif
+                
+                @if (!empty($offers[3]))
+                    <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
+                        <div class="sl-slide-inner ">
+                            <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
+                            <blockquote><cite><a href="{{route('offer.show' ,['offer'=>$offers[3]->id])}}">{{$offers[3]->property_name}}</a></cite>
+                                <p>{{substr ($offers[3]->description, 0, 100 )}}...</p>
+                                <span class="pull-left"><b> Area :</b>{{$offers[3]->area}} m²</span>
+                                <span class="proerty-price pull-right">{{$offers[3]->property_price}} MAD</span>
+                                <div class="property-icon">
+                                    <img src="assets/img/icon/bed.png">(5)|
+                                    <img src="assets/img/icon/shawer.png">(2)|
+                                    <img src="assets/img/icon/cars.png">(1)  
+                                </div>
+                            </blockquote>
+                        </div>
                     </div>
-                </div>    
-
-                <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-
-                    <div class="sl-slide-inner ">
-
-                        <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
-                        <blockquote><cite><a href="{{route('offer.show' ,['offer'=>$offers[2]->id])}}">{{$offers[2]->property_name}}</a></cite>
-                            <p>{{substr ($offers[2]->description, 0, 100 )}}...</p>
-                            <span class="pull-left"><b> Area :</b>{{$offers[2]->area}} m²</span>
-                            <span class="proerty-price pull-right">{{$offers[2]->property_price}} MAD</span>
-                            <div class="property-icon">
-                                <img src="assets/img/icon/bed.png">(5)|
-                                <img src="assets/img/icon/shawer.png">(2)|
-                                <img src="assets/img/icon/cars.png">(1)  
-                            </div>
-                        </blockquote>
-                    </div>
-                </div>
-
-
-                <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
-
-                    <div class="sl-slide-inner ">
-
-                        <div class="bg-img bg-img-1" style="background-image: url(assets/img/slide2/1.jpg);"></div>                             
-                        <blockquote><cite><a href="{{route('offer.show' ,['offer'=>$offers[3]->id])}}">{{$offers[3]->property_name}}</a></cite>
-                            <p>{{substr ($offers[3]->description, 0, 100 )}}...</p>
-                            <span class="pull-left"><b> Area :</b>{{$offers[3]->area}} m²</span>
-                            <span class="proerty-price pull-right">{{$offers[3]->property_price}} MAD</span>
-                            <div class="property-icon">
-                                <img src="assets/img/icon/bed.png">(5)|
-                                <img src="assets/img/icon/shawer.png">(2)|
-                                <img src="assets/img/icon/cars.png">(1)  
-                            </div>
-                        </blockquote>
-                    </div>
-                </div>
+                @endif
+                
 
             </div><!-- /sl-slider -->
 
@@ -201,8 +205,8 @@
         <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
 	    <script type="text/javascript">
             // On initialise la latitude et la longitude de Paris (centre de la carte)
-            var lat = 48.852969;
-            var lng = 2.349903;
+            var lat = 31.794525;
+            var lng = -7.0849336;
             var macarte = null;
             var i = 0;
             var offers =  <?php echo json_encode($offers); ?>;

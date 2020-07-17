@@ -64,7 +64,7 @@ class DemmandController extends Controller
 
         $demand->facilities()->toggle($request->input('facilities'));
 
-        return  redirect('/');
+        return redirect()->route('demand.index');
     }
 
     /**

@@ -88,13 +88,20 @@
                         @endguest
                         @auth
                             @yield('submit')
-                            <a class="navbar-btn nav-button wow fadeInRight" href="{{Route('offer.create')}}" data-wow-delay="0.4s">Submit</a>
+                            <a class="navbar-btn nav-button wow fadeInRight" href="{{Route('demand.create')}}" data-wow-delay="0.4s">Submit</a>
                         @endauth
+                        @if ($demand->client_id==Auth::user()->id)
+                        <form class="inline" action="{{route('demand.destroy' , ['demand' => $demand->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input class="navbar-btn nav-button wow fadeInRight" type="submit" value="DELETE"/>
+                        </form>
+                        @endif
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="/" class="">Home</a></li>
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{{route('demand.index')}}">Demands</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{{route('offer.index')}}">Offers</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{{route('demand.index')}}">demands</a></li>
                         @auth
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{ Auth::user()->username }} <b class="caret"></b></a>

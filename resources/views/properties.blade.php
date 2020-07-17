@@ -96,6 +96,14 @@
                             @yield('submit')
                             <a class="navbar-btn nav-button wow fadeInRight" href="{{Route('offer.create')}}" data-wow-delay="0.4s">Submit</a>
                         @endauth
+
+                        @if ($offer->client_id==Auth::user()->id)
+                        <form class="inline" action="{{route('offer.destroy' , ['offer' => $offer->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input class="navbar-btn nav-button wow fadeInRight" type="submit" value="DELETE"/>
+                        </form>
+                        @endif
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="/" class="">Home</a></li>

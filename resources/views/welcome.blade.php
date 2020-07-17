@@ -2,6 +2,12 @@
 
 @section('title')
     <title>Home page</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <style type="text/css">
+        #map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+            height:400px;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -138,67 +144,15 @@
     </div>
 
     <!--Welcome area -->
-    <div class="Welcome-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 Welcome-entry  col-sm-12">
-                    <div class="col-md-5 col-md-offset-2 col-sm-6 col-xs-12">
-                        <div class="welcome_text wow fadeInLeft" data-wow-delay="0.3s" data-wow-offset="100">
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                                    <!-- /.feature title -->
-                                    <h2>GARO ESTATE </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-sm-6 col-xs-12">
-                        <div  class="welcome_services wow fadeInRight" data-wow-delay="0.3s" data-wow-offset="100">
-                            <div class="row">
-                                <div class="col-xs-6 m-padding">
-                                    <div class="welcome-estate">
-                                        <div class="welcome-icon">
-                                            <i class="pe-7s-home pe-4x"></i>
-                                        </div>
-                                        <h3>Any property</h3>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 m-padding">
-                                    <div class="welcome-estate">
-                                        <div class="welcome-icon">
-                                            <i class="pe-7s-users pe-4x"></i>
-                                        </div>
-                                        <h3>More Clients</h3>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-xs-12 text-center">
-                                    <i class="welcome-circle"></i>
-                                </div>
-
-                                <div class="col-xs-6 m-padding">
-                                    <div class="welcome-estate">
-                                        <div class="welcome-icon">
-                                            <i class="pe-7s-notebook pe-4x"></i>
-                                        </div>
-                                        <h3>Easy to use</h3>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 m-padding">
-                                    <div class="welcome-estate">
-                                        <div class="welcome-icon">
-                                            <i class="pe-7s-help2 pe-4x"></i>
-                                        </div>
-                                        <h3>Any help </h3>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                <!-- /.feature title -->
+                <h2>Get the location</h2>
             </div>
+        </div>
+        <div class="container">
+            <div id="map"></div>
         </div>
     </div>
     
@@ -241,4 +195,55 @@
             </div>
         </div>
     </div>
+
+    
+        <!-- Fichiers Javascript -->
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+	    <script type="text/javascript">
+            // On initialise la latitude et la longitude de Paris (centre de la carte)
+            var lat = 48.852969;
+            var lng = 2.349903;
+            var macarte = null;
+            var i = 0;
+            var offers =  <?php echo json_encode($offers); ?>;
+            var len = offers.length;
+            
+            // Fonction d'initialisation de la carte
+            function initMap() {
+                // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+                macarte = L.map('map').setView([lat, lng], 11);
+                // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+                L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                    // Il est toujours bien de laisser le lien vers la source des données
+                    attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                    minZoom: 1,
+                    maxZoom: 20
+                }).addTo(macarte);
+            }
+            window.onload = function(){
+		        // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+		        initMap(); 
+            };
+
+            function initMap() {
+                // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+                macarte = L.map('map').setView([lat, lng], 11);
+                // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+                L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                    // Il est toujours bien de laisser le lien vers la source des données
+                    attribution: 'données © OpenStreetMap/ODbL - rendu OSM France',
+                    minZoom: 1,
+                    maxZoom: 20
+                }).addTo(macarte);
+                // Nous parcourons la liste des villes
+                for (i=0; i < len; i++) {
+                console.log(offers[i]['property_name']);
+                console.log(offers[i]['lat']);
+                console.log(offers[i]['lng']);
+                
+                var marker = L.marker([offers[i]['lat'], offers[i]['lng']]).addTo(macarte);
+                    marker.bindPopup(offers[i]['property_name']);
+                }         	
+            }
+        </script>
 @endsection

@@ -63,11 +63,11 @@
                                 <div class="col-sm-6 col-md-4 p0">
                                     <div class="box-two proerty-item">
                                         <div class="item-thumb">
-                                            <a href="{{route('offer.show' ,['offer'=>$offers[2]->id])}}" ><img src="storage/{{$offer->imgPath}}" style="width:304px; height:248px;"></a>
+                                            <a href="{{route('offer.show' ,['offer'=>$offer->id])}}" ><img src="storage/{{$offer->imgPath}}" style="width:304px; height:248px;"></a>
                                         </div>
 
                                         <div class="item-entry overflow">
-                                            <h5><a href="{{route('offer.show' ,['offer'=>$offers[2]->id])}}">{{$offer->property_name}} </a></h5>
+                                            <h5><a href="{{route('offer.show' ,['offer'=>$offer->id])}}">{{$offer->property_name}} </a></h5>
                                             <div class="dot-hr"></div>
                                             <span class="pull-left"><b> Area :</b>{{$offer->area}} m²</span>
                                             <span class="proerty-price pull-right">{{$offer->property_price}} MAD</span>

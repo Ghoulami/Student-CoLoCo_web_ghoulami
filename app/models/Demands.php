@@ -5,6 +5,11 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
+
 class Demands extends Model
 {
     use CrudTrait;
@@ -46,12 +51,6 @@ class Demands extends Model
     /*
     |--------------------------------------------------------------------------
     | SCOPES
-    |--------------------------------------------------------------------------
-    */
-
-    /*
-    |--------------------------------------------------------------------------
-    | ACCESSORS
     |--------------------------------------------------------------------------
     */
 

@@ -15,7 +15,7 @@ class DemandsRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        return true;
     }
 
     /**
@@ -26,7 +26,10 @@ class DemandsRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => ['required', 'string', 'max:255'],
+            'max_price' => ['required', 'numeric'],
+            'Capacity' => ['required', 'numeric', 'min:0'],
+            'area' => ['required', 'numeric',],
         ];
     }
 

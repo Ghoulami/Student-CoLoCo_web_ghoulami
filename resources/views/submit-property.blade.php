@@ -8,6 +8,7 @@
 @section('title')
     <title>Submit new property</title>
 @endsection
+
 <div class="page-head"> 
     <div class="container">
         <div class="row">
@@ -161,6 +162,31 @@
                                             </div> 
                                         </div>
                                         @endforelse
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-3">
+                                            <div class="form-group{{ $errors->has('lat') ? ' has-error' : '' }}">
+                                                <label>Latitude :</label>
+                                                <input type="number" name="lat" class="form-control" placeholder="lat..."></textarea>
+                                                @if ($errors->has('lat'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('lat') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group{{ $errors->has('lng') ? ' has-error' : '' }}">
+                                                <label>Longitude :</label>
+                                                <input type="number" name="lng" class="form-control" placeholder="lng..."></textarea>
+                                                @if ($errors->has('lng'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('lng') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
                                     <br>
                                 </div>

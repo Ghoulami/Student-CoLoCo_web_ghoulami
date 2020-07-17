@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
 class Client extends Authenticatable
 {
     use CrudTrait;
@@ -66,7 +70,6 @@ class Client extends Authenticatable
     | SCOPES
     |--------------------------------------------------------------------------
     */
-
     /*
     |--------------------------------------------------------------------------
     | ACCESSORS

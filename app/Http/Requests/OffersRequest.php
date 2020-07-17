@@ -31,6 +31,8 @@ class OffersRequest extends FormRequest
             'propertyprice' => ['required', 'numeric'],
             'Capacity' => ['required', 'numeric', 'min:0'],
             'area' => ['required', 'numeric',],
+            'lat' => ['required', 'numeric',],
+            'lng' => ['required', 'numeric',],
         ];
     }
 

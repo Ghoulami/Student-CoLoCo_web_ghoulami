@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | Property  page</title>
+        <title>Offers Details</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -30,6 +30,12 @@
         <link rel="stylesheet" href="../assets/css/lightslider.min.css">
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/responsive.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+        <style type="text/css">
+            #map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+                height:400px;
+            }
+        </style>
     </head>
 
     <body>
@@ -87,118 +93,14 @@
                             <a class="navbar-btn nav-button wow bounceInRight login" href="{{Route('register_singin')}}" data-wow-delay="0.4s">Login</a>
                         @endguest
                         @auth
+                            @yield('submit')
                             <a class="navbar-btn nav-button wow fadeInRight" href="{{Route('offer.create')}}" data-wow-delay="0.4s">Submit</a>
                         @endauth
-                        @if(Auth::user()->id == $offer->client_id)
-                        <form action="{{Route('offer.destroy' , ['offer'=>$offer->id])}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <input class="navbar-btn nav-button wow fadeInRight" type="submit" value="Delet"/>
-                        </form>
-                        @endif
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="property.html">Property</a></li>
-                        <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
-
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="/" class="">Home</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{{route('demand.index')}}">Demands</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{{route('offer.index')}}">Offers</a></li>
                         @auth
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{ Auth::user()->username }} <b class="caret"></b></a>
@@ -318,13 +220,9 @@
                                 </div>
                                 <!-- End features area  -->
 
-                                <div class="section property-video"> 
-                                    <h4 class="s-property-title">Property Video</h4> 
-                                    <div class="video-thumb">
-                                        <a class="video-popup" href="yout" title="Virtual Tour">
-                                            <img src="../assets/img/property-video.jpg" class="img-responsive wp-post-image" alt="Exterior">            
-                                        </a>
-                                    </div>
+
+                                <div class="container">
+                                    <div id="map"></div>
                                 </div>
                                 <!-- End video area  -->
 
@@ -444,7 +342,7 @@
                                         <div class="clear">
                                             <div class="col-xs-4 col-sm-4 dealer-face">
                                                 <a href="">
-                                                    <img src="../assets/img/client-face1.png" class="img-circle">
+                                                    <img src="../storage/{{$offer->client()->get()->first()->imgPath}}" class="img-circle">
                                                 </a>
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
@@ -662,5 +560,49 @@
                             });
         </script>
 
+
+
+    
+        <!-- Fichiers Javascript -->
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+	    <script type="text/javascript">
+            // On initialise la latitude et la longitude de Paris (centre de la carte)
+            var lat = 48.852969;
+            var lon = 2.349903;
+            var macarte = null;
+            var offer =  <?php echo json_encode($offer); ?>;
+            // Fonction d'initialisation de la carte
+            function initMap() {
+                // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+                macarte = L.map('map').setView([lat, lon], 11);
+                // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+                L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                    // Il est toujours bien de laisser le lien vers la source des données
+                    attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                    minZoom: 1,
+                    maxZoom: 20
+                }).addTo(macarte);
+            }
+            window.onload = function(){
+		        // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+		        initMap(); 
+            };
+
+            function initMap() {
+                // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+                macarte = L.map('map').setView([offer['lat'], offer['lng']], 11);
+                // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+                L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                    // Il est toujours bien de laisser le lien vers la source des données
+                    attribution: 'données © OpenStreetMap/ODbL - rendu OSM France',
+                    minZoom: 1,
+                    maxZoom: 20
+                }).addTo(macarte);
+                // Nous parcourons la liste des villes
+
+                var marker = L.marker([offer['lat'], offer['lng']]).addTo(macarte);
+                    marker.bindPopup(offers[i]['property_name']);   	
+            }
+        </script>
     </body>
 </html>

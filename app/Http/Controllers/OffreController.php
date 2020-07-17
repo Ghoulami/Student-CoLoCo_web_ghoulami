@@ -75,8 +75,8 @@ class OffreController extends Controller
         $offre->city = $request->input('city');
         $offre->adresse = $request->input('adresse');
         $offre->area = $request->input('area');
-        $offre->lat = 0;
-        $offre->lng = 0;
+        $offre->lat = $request->input('lat');;
+        $offre->lng = $request->input('lng');;
         $offre->imgPath = $this->uploadImages($request,$destinationPath);
         
         $offre->save();

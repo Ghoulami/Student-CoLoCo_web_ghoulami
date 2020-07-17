@@ -39,7 +39,52 @@ class OffersCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        $col1 = [
+            'name' => 'imgPath',
+            'type' => 'image',
+            'label' => 'Image',
+            'prefix' => 'storage/',
+            'height' => '80px'
+        ];
+
+        $col2 = [
+            'name' => 'property name',
+            'type' => 'text',
+            'label' => 'property_name',
+        ];
+
+        $col3 = [
+            'name' => 'property_price',
+            'type' => 'text',
+            'label' => 'property_price',
+        ];
+        
+        $col4 = [
+            'name' => 'capacity',
+            'label' => 'capacity',
+            'type' => 'text',
+        ];
+        
+        
+        $col5 = [
+            'name' => 'city',
+            'type' => 'text',
+            'label' => 'city',
+        ];
+        
+        $col6 = [
+            'name' => 'area',
+            'type' => 'text',
+            'label' => 'area',
+        ];
+        
+        $col7 = [
+            'name' => 'add_date',
+            'type' => 'date',
+            'label' => 'add_date',
+        ];
+
+        $this->crud->addColumns([$col1,$col2,$col3,$col4,$col5,$col6]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:

@@ -4,6 +4,10 @@
 @section('title')
     <title>Demands List</title>
 @endsection
+
+@section('submit')
+    <a class="navbar-btn nav-button wow fadeInRight" href="{{Route('demand.create')}}" data-wow-delay="0.4s">Add demand</a>
+@endsection
     <div class="page-head"> 
         <div class="container">
             <div class="row">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DemandsRequest;
 use App\Models\Demands;
 use App\Models\Facilities;
 use App\Models\Images;
@@ -43,7 +44,7 @@ class DemmandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DemandsRequest $request)
     {
         $destinationPath = 'images/demands';
         

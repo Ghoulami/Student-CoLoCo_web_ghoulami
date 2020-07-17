@@ -8,6 +8,8 @@
 @section('title')
     <title>Submit new demand</title>
 @endsection
+
+
 <div class="page-head"> 
     <div class="container">
         <div class="row">

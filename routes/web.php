@@ -25,10 +25,3 @@ Auth::routes();
 Route::resource('client', 'ClientController');
 Route::resource('offer', 'OffreController');
 Route::resource('demand', 'DemmandController');
-
-
-Route::post('add_maps' , function(){
-});
-
-Route::get('maps/{id}' , function($id){
-});

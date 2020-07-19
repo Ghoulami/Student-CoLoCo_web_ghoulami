@@ -90,6 +90,7 @@
                             @yield('submit')
                             <a class="navbar-btn nav-button wow fadeInRight" href="{{Route('demand.create')}}" data-wow-delay="0.4s">Submit</a>
                         @endauth
+                        @auth
                         @if ($demand->client_id==Auth::user()->id)
                         <form class="inline" action="{{route('demand.destroy' , ['demand' => $demand->id])}}" method="POST">
                             @csrf
@@ -97,11 +98,12 @@
                             <input class="navbar-btn nav-button wow fadeInRight" type="submit" value="DELETE"/>
                         </form>
                         @endif
+                        @endauth
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="/" class="">Home</a></li>
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{{route('demand.index')}}">Demands</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{{route('demand.index')}}">demands</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{{route('offer.index')}}">Offers</a></li>
                         @auth
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{ Auth::user()->username }} <b class="caret"></b></a>
@@ -291,7 +293,7 @@
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
                                                 <h3 class="dealer-name">
-                                                    <a href="{{ route('client.show',['client'=>Auth::user()->id]) }}">{{$demand->client()->get()->first()->last_name}} {{$demand->client()->get()->first()->first_name}}</a>
+                                                    <a href="#">{{$demand->client()->get()->first()->last_name}} {{$demand->client()->get()->first()->first_name}}</a>
                                                 </h3>
                                                 <div class="dealer-social-media">
                                                     <a class="twitter" target="_blank" href="">

@@ -25,3 +25,6 @@ Auth::routes();
 Route::resource('client', 'ClientController');
 Route::resource('offer', 'OffreController');
 Route::resource('demand', 'DemmandController');
+
+Route::get('/api/offers', 'OffreController@offreApi')->name('offreApi');;
+

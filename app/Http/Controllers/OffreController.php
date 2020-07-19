@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OffersRequest;
+use App\Http\Resources\OfferResource;
 use App\Models\Facilities;
 use App\Models\Images;
 use App\Models\Offers;
@@ -152,5 +153,13 @@ class OffreController extends Controller
             return $request->imgPath->storeAs($path, $fileName, 'public');
         }
         return null;
+    }
+
+    public function offreApi()
+    {
+        $offers = Offers::orderBy('created_at', 'desc')
+        ->get();
+
+        return response()->json(OfferResource::collection($offers), 200);
     }
 }

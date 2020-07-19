@@ -97,6 +97,7 @@
                             <a class="navbar-btn nav-button wow fadeInRight" href="{{Route('offer.create')}}" data-wow-delay="0.4s">Submit</a>
                         @endauth
 
+                        @auth
                         @if ($offer->client_id==Auth::user()->id)
                         <form class="inline" action="{{route('offer.destroy' , ['offer' => $offer->id])}}" method="POST">
                             @csrf
@@ -104,6 +105,8 @@
                             <input class="navbar-btn nav-button wow fadeInRight" type="submit" value="DELETE"/>
                         </form>
                         @endif
+                        @endauth  
+                        
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="/" class="">Home</a></li>
@@ -355,7 +358,7 @@
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
                                                 <h3 class="dealer-name">
-                                                    <a href="{{ route('client.show',['client'=>Auth::user()->id]) }}">{{$offer->client()->get()->first()->last_name}} {{$offer->client()->get()->first()->first_name}}</a>
+                                                    <a href="#">{{$offer->client()->get()->first()->last_name}} {{$offer->client()->get()->first()->first_name}}</a>
                                                 </h3>
                                                 <div class="dealer-social-media">
                                                     <a class="twitter" target="_blank" href="">
